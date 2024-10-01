@@ -12,10 +12,7 @@ function Principal({ children }) {
           texto="Lista de Metas"
           Icono={ListaSVG}
         ></Vinculo>
-        <Vinculo 
-          href="/crear" 
-          texto="Nueva Meta" 
-          Icono={NuevaSVG}></Vinculo>
+        <Vinculo href="/crear" texto="Nueva Meta" Icono={NuevaSVG}></Vinculo>
       </aside>
       <main className={estilos.main}>{children}</main>
     </div>
