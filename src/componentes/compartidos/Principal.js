@@ -17,7 +17,7 @@ function Principal({ children }) {
           texto="Nueva Meta" 
           Icono={NuevaSVG}></Vinculo>
       </aside>
-      <main className="main">{children}</main>
+      <main className={estilos.main}>{children}</main>
     </div>
   );
 }
