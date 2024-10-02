@@ -3,7 +3,6 @@ import Encabezado from "./Encabezado";
 import Pie from "./Pie";
 import Principal from "./Principal";
 
-
 function Layout() {
   return (
     <>
