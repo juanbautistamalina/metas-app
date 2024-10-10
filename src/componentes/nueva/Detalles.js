@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import estilos from "./Detalles.module.css";
 import { Contexto } from "../../servicios/Memoria";
 import { useNavigate, useParams } from "react-router-dom";
+import { actualizarMeta, borrarMeta, crearMeta } from "../../servicios/Pedidos";
 
 function Detalles() {
   const { id } = useParams();
@@ -36,18 +37,21 @@ function Detalles() {
     setForm(metaMemoria);
   }, [id, metaMemoria, navegar]);
 
-  const crear = () => {
-    enviar({ tipo: "crear", meta: form });
+  const crear = async () => {
+    const nuevaMeta = await crearMeta();
+    enviar({ tipo: "crear", meta: nuevaMeta });
     navegar("/lista");
   };
 
-  const actualizar = () => {
-    enviar({tipo: "actualizar", meta: form});
+  const actualizar = async () => {
+    const metaActualizada = await actualizarMeta();
+    enviar({tipo: "actualizar", meta: metaActualizada});
     navegar("/lista")
   };
 
-  const borrar = () => {
-    enviar({tipo: "borrar",id});
+  const borrar = async () => {
+    const idBorrada = await borrarMeta();
+    enviar({tipo: "borrar", id: idBorrada });
     navegar("/lista")
   };
 
